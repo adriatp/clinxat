@@ -1,0 +1,45 @@
+{
+  "manifest_version": 3,
+  "name": "ChatGPT DOM Cleaner",
+  "version": "1.0.0",
+  "description": "Remueve elementos específicos del DOM en chatgpt.com",
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "storage"
+  ],
+  "host_permissions": [
+    "https://chatgpt.com/*"
+  ],
+  "commands": {
+    "toggle-cleaner": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+X"
+      },
+      "description": "Toggle DOM cleaner"
+    }
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    },
+    "default_title": "Toggle DOM Cleaner"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://chatgpt.com/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
