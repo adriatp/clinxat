@@ -4,7 +4,7 @@ const hiddenElements = new Set();
 
 function hideElements() {
   if (!isEnabled) return;
-  
+
   const elementsToHide = [
     ".text-token-text-secondary",
     "#page-header",
@@ -27,7 +27,7 @@ function hideElements() {
 
 function observeDOM() {
   if (observer) observer.disconnect();
-  
+
   observer = new MutationObserver(() => {
     hideElements();
   });
@@ -40,23 +40,23 @@ function observeDOM() {
 
 function toggleCleaner(enabled) {
   isEnabled = enabled;
-  
+
   if (enabled) {
     hideElements();
     observeDOM();
-    console.log('DOM Cleaner enabled');
+    console.log('Clinxat enabled');
   } else {
     if (observer) {
       observer.disconnect();
       observer = null;
     }
-    // Restaurar solo los elementos que ocultamos
+    // Restore only the elements we hid
     hiddenElements.forEach(element => {
       element.style.display = element.dataset.originalDisplay || '';
       delete element.dataset.originalDisplay;
     });
     hiddenElements.clear();
-    console.log('DOM Cleaner disabled');
+    console.log('Clinxat disabled');
   }
 }
 

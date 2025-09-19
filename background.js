@@ -1,7 +1,7 @@
 let isEnabled = true;
 
 chrome.runtime.onInstalled.addListener(() => {
-  console.log('ChatGPT DOM Cleaner extension installed');
+  console.log('Clinxat: ChatGPT DOM Cleaner extension installed');
   chrome.storage.sync.set({ enabled: true });
 });
 
@@ -9,12 +9,12 @@ chrome.action.onClicked.addListener((tab) => {
   chrome.storage.sync.get(['enabled'], (result) => {
     const newState = !result.enabled;
     chrome.storage.sync.set({ enabled: newState });
-    
+
     chrome.tabs.sendMessage(tab.id, { 
       action: 'toggle', 
       enabled: newState 
     });
-    
+
     updateIcon(newState);
   });
 });
@@ -26,12 +26,12 @@ chrome.commands.onCommand.addListener((command) => {
         chrome.storage.sync.get(['enabled'], (result) => {
           const newState = !result.enabled;
           chrome.storage.sync.set({ enabled: newState });
-          
+
           chrome.tabs.sendMessage(tabs[0].id, { 
             action: 'toggle', 
             enabled: newState 
           });
-          
+
           updateIcon(newState);
         });
       }
@@ -45,10 +45,10 @@ function updateIcon(enabled) {
     "48": "icons/icon48.png", 
     "128": "icons/icon128.png"
   } : {
-    "16": "icons/icon16-disabled.png",
-    "48": "icons/icon48-disabled.png",
-    "128": "icons/icon128-disabled.png"
-  };
-  
+      "16": "icons/icon16-disabled.png",
+      "48": "icons/icon48-disabled.png",
+      "128": "icons/icon128-disabled.png"
+    };
+
   chrome.action.setIcon({ path });
 }

@@ -1,24 +1,24 @@
-# ChatGPT DOM Cleaner Extension
+# Clinxat: ChatGPT DOM Cleaner Extension
 
-Una extensión de navegador que remueve elementos específicos del DOM en chatgpt.com
+A browser extension that removes specific DOM elements on chatgpt.com
 
-## Instalación
+## Installation
 
 ### Chrome
-1. Ve a `chrome://extensions/`
-2. Activa "Modo desarrollador"
-3. Haz clic en "Cargar descomprimida"
-4. Selecciona la carpeta de la extensión
+1. Go to `chrome://extensions/`
+2. Enable "Developer mode"
+3. Click "Load unpacked"
+4. Select the extension folder
 
 ### Firefox
-1. Ve a `about:debugging`
-2. Haz clic en "This Firefox"
-3. Haz clic en "Load Temporary Add-on"
-4. Selecciona el archivo `manifest.json`
+1. Go to `about:debugging`
+2. Click "This Firefox"
+3. Click "Load Temporary Add-on"
+4. Select the `manifest.json` file
 
-## Configuración
+## Configuration
 
-Edita el archivo `content.js` y agrega los selectores CSS de los elementos que quieres remover en el array `elementsToRemove`:
+Edit the `content.js` file and add the CSS selectors of the elements you want to remove in the `elementsToRemove` array:
 
 ```javascript
 const elementsToRemove = [
@@ -28,8 +28,8 @@ const elementsToRemove = [
 ];
 ```
 
-## Funcionalidad
+## Functionality
 
-- Detecta automáticamente cuando estás en chatgpt.com
-- Remueve elementos del DOM basado en selectores CSS
-- Observa cambios en el DOM para remover elementos que aparezcan dinámicamente
+- Automatically detects when you're on chatgpt.com
+- Removes DOM elements based on CSS selectors
+- Observes DOM changes to remove dynamically appearing elements
