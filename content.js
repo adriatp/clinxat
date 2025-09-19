@@ -6,7 +6,7 @@ function hideElements() {
   if (!isEnabled) return;
 
   const elementsToHide = [
-    ".text-token-text-secondary",
+    "#thread-bottom-container .text-token-text-secondary",
     "#page-header",
     ".draggable", 
     "#stage-slideover-sidebar"
