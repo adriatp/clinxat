@@ -4,17 +4,28 @@ A browser extension that removes specific DOM elements on chatgpt.com
 
 ## Installation
 
+### Building
+Run the build script to generate both Chrome and Firefox versions:
+
+```bash
+./build.sh
+```
+
+This will create two folders:
+- `build/chrome/` - Chrome extension (manifest v3)
+- `build/firefox/` - Firefox extension (manifest v2)
+
 ### Chrome
 1. Go to `chrome://extensions/`
 2. Enable "Developer mode"
 3. Click "Load unpacked"
-4. Select the extension folder
+4. Select the `build/chrome/` folder
 
 ### Firefox
 1. Go to `about:debugging`
 2. Click "This Firefox"
 3. Click "Load Temporary Add-on"
-4. Select the `manifest.json` file
+4. Select the `build/firefox/manifest.json` file
 
 ## Configuration
 

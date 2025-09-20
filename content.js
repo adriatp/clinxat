@@ -1,3 +1,5 @@
+const browser = typeof chrome !== 'undefined' ? chrome : typeof browser !== 'undefined' ? browser : null;
+
 let isEnabled = true;
 let observer = null;
 const hiddenElements = new Set();
@@ -61,16 +63,18 @@ function toggleCleaner(enabled) {
   }
 }
 
-chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
-  if (request.action === 'toggle') {
-    toggleCleaner(request.enabled);
-  }
-});
+if (browser) {
+  browser.runtime.onMessage.addListener((request, sender, sendResponse) => {
+    if (request.action === 'toggle') {
+      toggleCleaner(request.enabled);
+    }
+  });
 
-chrome.storage.sync.get(['enabled'], (result) => {
-  const enabled = result.enabled !== undefined ? result.enabled : true;
-  toggleCleaner(enabled);
-});
+  browser.storage.sync.get(['enabled'], (result) => {
+    const enabled = result.enabled !== undefined ? result.enabled : true;
+    toggleCleaner(enabled);
+  });
+}
 
 if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', () => {
