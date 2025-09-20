@@ -1,25 +1,25 @@
 #!/bin/bash
 
 # Clean previous builds
-rm -rf build/chrome build/firefox
+rm -rf dist/chrome dist/firefox
 
 # Create build directories
-mkdir -p build/chrome build/firefox
+mkdir -p dist/chrome dist/firefox
 
 # Copy common files
-cp -r icons/ build/chrome/
-cp -r icons/ build/firefox/
+cp -r icons/ dist/chrome/
+cp -r icons/ dist/firefox/
 
 # Chrome build (uses manifest v3)
-cp manifest.json build/chrome/
-cp background.js build/chrome/
-cp content.js build/chrome/
+cp manifest.json dist/chrome/
+cp background.js dist/chrome/
+cp content.js dist/chrome/
 
 # Firefox build (uses manifest v2)
-cp manifest-firefox.json build/firefox/manifest.json
-cp background.js build/firefox/
-cp content.js build/firefox/
+cp manifest-firefox.json dist/firefox/manifest.json
+cp background-firefox.js dist/firefox/background.js
+cp content.js dist/firefox/
 
 echo "Build complete!"
-echo "Chrome extension: build/chrome/"
-echo "Firefox extension: build/firefox/"
+echo "Chrome extension: dist/chrome/"
+echo "Firefox extension: dist/firefox/"
