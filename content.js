@@ -9,7 +9,8 @@ function hideElements() {
     "#thread-bottom-container .text-token-text-secondary",
     "#page-header",
     ".draggable", 
-    "#stage-slideover-sidebar"
+    "#stage-slideover-sidebar",
+    "aside"
   ];
 
   elementsToHide.forEach(selector => {
