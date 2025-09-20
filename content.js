@@ -1,4 +1,5 @@
 const browser = typeof chrome !== 'undefined' ? chrome : typeof browser !== 'undefined' ? browser : null;
+console.log('Content script loaded for:', window.location.href);
 
 let isEnabled = true;
 let observer = null;
@@ -64,14 +65,22 @@ function toggleCleaner(enabled) {
 }
 
 if (browser) {
+  console.log('Browser API available, setting up listeners');
   browser.runtime.onMessage.addListener((request, sender, sendResponse) => {
+    console.log('Message received:', request);
     if (request.action === 'toggle') {
+      console.log('Toggle request:', request.enabled);
       toggleCleaner(request.enabled);
     }
   });
 
-  browser.storage.sync.get(['enabled'], (result) => {
+  const storageAPI = browser.storage.sync || browser.storage.local;
+  console.log('Using storage API:', storageAPI === browser.storage.sync ? 'sync' : 'local');
+  
+  storageAPI.get(['enabled'], (result) => {
+    console.log('Initial storage result:', result);
     const enabled = result.enabled !== undefined ? result.enabled : true;
+    console.log('Initial state:', enabled);
     toggleCleaner(enabled);
   });
 }
