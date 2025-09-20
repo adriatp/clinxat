@@ -16,7 +16,7 @@
   "commands": {
     "toggle-cleaner": {
       "suggested_key": {
-        "default": "Ctrl+Shift+X"
+        "default": "Alt+Shift+X"
       },
       "description": "Toggle Clinxat"
     }
