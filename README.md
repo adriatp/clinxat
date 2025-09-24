@@ -44,3 +44,4 @@ const elementsToRemove = [
 - Automatically detects when you're on chatgpt.com
 - Removes DOM elements based on CSS selectors
 - Observes DOM changes to remove dynamically appearing elements
+# Clean commit
