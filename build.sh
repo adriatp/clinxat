@@ -20,6 +20,12 @@ cp manifest-firefox.json dist/firefox/manifest.json
 cp background-firefox.js dist/firefox/background.js
 cp content.js dist/firefox/
 
+# Create .xpi for Firefox
+cd dist/firefox || exit
+zip -r ../firefox-extension.xpi .
+cd ../..
+
 echo "Build complete!"
 echo "Chrome extension: dist/chrome/"
 echo "Firefox extension: dist/firefox/"
+echo "Firefox XPI: dist/firefox-extension.xpi"

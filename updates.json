@@ -1,0 +1,12 @@
+{
+  "addons": {
+    "clinxat@adriatp.com": {
+      "updates": [
+        {
+          "version": "1.0.0",
+          "update_link": "https://github.com/adriatp/clinxat/releases/latest/download/firefox-extension.xpi"
+        }
+      ]
+    }
+  }
+}
